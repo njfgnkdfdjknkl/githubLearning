@@ -1,0 +1,212 @@
+:root{
+	--duration:.2s;
+}
+*{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+}
+.wrapper{
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background-color: #30302e;
+	position: relative;
+	overflow: hidden;
+}
+.parallax{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.container {
+	perspective: 1000px;
+	transform-style: preserve-3d;
+ }
+ .container .card {
+	position: relative;
+	width: 1000px;
+	height: 600px;
+	background: #232323;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 0 20px #222421;
+	transition-duration: var(--duration);
+ }
+ 
+ .circle {
+	position: absolute;
+	top: -30%;
+	right: -20%;
+	width: 450px;
+	height:450px;
+	background: #9bdc28;
+	border-radius: 50%;
+	transition-property: width,height,background-color;
+	transition-duration: .5s,.5s,.2s;
+ }
+ .container:hover .circle{
+	width: 700px;
+	height:650px;
+ }
+ .changedColor::before{
+	 background:#9bdc28;
+ }
+ .container .card::after {
+	content: 'Nike';
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	font-size: 20em;
+	font-weight: 800;
+	font-style: italic;
+	color: rgba(255, 255, 255, 0.04);
+ }
+ 
+ .container .card .imgBx {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	height: 320px;
+	transition: 0.5s;
+ }
+ .container:hover .imgBx {
+	top: 0;
+	transform: translateY(0);
+ }
+ 
+ .shoe{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-210%, -50%) rotate(-25deg);
+	width: 470px;
+	opacity: 0;
+	transition-property:transform;
+	transition-duration: var(--duration);
+ }
+ .shoe.show{
+	 opacity: 1;
+	transform: translate(-50%, -50%) rotate(-25deg);
+ }
+ .container .card .contentBx {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	transition: 1s;
+	z-index: 10;
+ }
+ 
+ .container:hover .contentBx {
+	height: 210px;
+ }
+ 
+ .container .card .contentBx h2 {
+	position: relative;
+	font-weight: 600;
+	letter-spacing: 1px;
+	color: #ffffff;
+ }
+ 
+ 
+ .container .card .contentBx .size,
+ .container .card .contentBx .color {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 20px;
+	transition: 0.5s;
+	opacity: 0;
+	visibility: hidden;
+ }
+ 
+ .container:hover .contentBx .size {
+	opacity: 1;
+	visibility: visible;
+	transition-delay: 0.5s;
+ }
+ .container:hover .contentBx .color {
+	opacity: 1;
+	visibility: visible;
+	transition-delay: 0.6s;
+ }
+ 
+ .container .card .contentBx .size h3,
+ .container .card .contentBx .color h3 {
+	color: #ffffff;
+	font-weight: 300;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-right: 10px;
+ }
+ .size__item {
+	width: 26px;
+	height: 26px;
+	text-align: center;
+	line-height: 26px;
+	font-size: 14px;
+	display: inline-block;
+	color: #111111;
+	background: #fff;
+	margin: 0 5px;
+	transition-duration: var(--duration);
+	border-radius: 4px;
+	cursor: pointer;
+ }
+ .container .card .contentBx .color span {
+	width: 20px;
+	height: 20px;
+	background: #ff0;
+	border-radius: 50%;
+	margin: 0 5px;
+	cursor: pointer;
+ }
+ 
+ .container .card .contentBx .color span:nth-child(2) {
+	background: #9bdc28;
+ }
+ 
+ .container .card .contentBx .color span:nth-child(3) {
+	background: #03a9f4;
+ }
+ 
+ .container .card .contentBx .color span:nth-child(4) {
+	background: #e91e63;
+ }
+ 
+ .container .card .contentBx a {
+	display: inline-block;
+	padding: 10px 20px;
+	background: #fff;
+	border-radius: 4px;
+	margin-top: 10px;
+	text-decoration: none;
+	font-weight: 600;
+	color: #111111;
+	opacity: 0;
+	transform: translateY(50px);
+	transition: 0.5s;
+ }
+ 
+ .container:hover .contentBx a {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.75s;
+ }
+ .size__item.active{
+	background:#9bdc28;
+ }
+ .color__item.active{
+	 border: 2px solid white;
+	 transition-duration: var(--duration);
+	 transition-property: border-color;
+ }
